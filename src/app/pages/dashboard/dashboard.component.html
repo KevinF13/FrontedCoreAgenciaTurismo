@@ -1,3 +1,9 @@
+<div class="bg-3" id="Titulo">
+  
+      <h1 class="t-stroke t-shadow-halftone text-center">Administrador</h1>
+  
+  </div>
+  
 <div class="container-fluid" id="contenedor">
   <div class="container-fluid" *ngFor="let item of datatable">
     <div  class="card-title" >
@@ -15,12 +21,12 @@
           <div class="card-body">
             <p class="card-text">{{item.descripcion}}</p>
 
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
+            <div class="d-flex justify-content-between align-items-lg-center">
               <small class="text-muted">Tiempo de Viaje Estimado: {{item.duracion}} Horas </small>
+              <small class="text-muted">Precio por personas: {{item.precio}} </small>
+            </div>
+            <div class="btn-group" style="margin: 20px;">
+              <button class="btn btn-success" type="button" value="Seleccionar"  (click)="onSetData(item)">Seleccionar</button>
             </div>
           </div>
         </div>
@@ -28,3 +34,36 @@
     </div>
   </div>
 </div>
+<div class="row mt-5" style="margin: 20px;">
+  <div class="col-md-2">
+    <label for="txtId" class="from-label">ID</label>
+    <input type="text" name="id" id="txtId" class="form-control" [(ngModel)]= "viaje.id" disabled="true">
+  </div>
+  <div class="col-md-4">
+    <label for="txtNombre" class="from-label">Título</label>
+    <input type="text" name="id" id="txtNombre" class="form-control" [(ngModel)]= "viaje.nombre">
+  </div>
+  <div class="col-md-2">
+    <label for="txtApellido" class="from-label">Tiempo de Viaje</label>
+    <input type="text" name="id" id="txtapellido" class="form-control" [(ngModel)]= "viaje.duracion">
+  </div>
+  <div class="col-md-4">
+    <label for="txtCedula" class="from-label">Descripción</label>
+    <input maxlength="1000" type="text" name="id" id="txtCedula" class="form-control" [(ngModel)]= "viaje.descripcion">
+  </div>
+  <div class="col-md-4">
+    <label for="txtEmail" class="from-label">Precio</label>
+    <input type="text" name="id" id="txtEmail" class="form-control" [(ngModel)]= "viaje.precio">
+  </div>
+  <div class="col-md-4">
+    <label for="txtCelular" class="from-label">Url Imagen</label>
+    <input maxlength="1000" type="text" name="id" id="txtCelular" class="form-control" [(ngModel)]= "viaje.imagen">
+  </div>
+</div>
+<div class="row mt-5" style="position: inherit; margin: 20px;">
+  <div class="col">
+    <button class="btn btn-success" type="button" (click)="onAddViaje(viaje)">Agregar</button>
+    <button class="btn btn-warning m-2" type="button" (click)="onUpdateViaje(viaje)">Modificar</button>
+    <button class="btn btn-danger" type="button" (click)="onDeleteViaje(viaje.id, viaje)">Eliminar</button>
+    <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+  </div>

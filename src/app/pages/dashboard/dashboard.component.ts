@@ -61,7 +61,7 @@ export class DashboardComponent {
   }
 
   onSetData(select:any){
-      this.viaje.id = select.idCliente;
+      this.viaje.id = select.idViaje;
       this.viaje.nombre = select.nombre;
       this.viaje.duracion = select.duracion;
       this.viaje.descripcion = select.descripcion;
