@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Viaje } from './models/viaje';
-import { ViajeService } from './services/viaje.service';
+import { Viaje } from '../dashboard/models/viaje';
+import { ViajeService } from '../dashboard/services/viaje.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-crud',
+  templateUrl: './crud.component.html',
+  styleUrls: ['./crud.component.scss']
 })
-export class DashboardComponent {
+export class CrudComponent {
   viaje: Viaje = new Viaje();
   datatable:any = [];
 
@@ -78,5 +78,4 @@ export class DashboardComponent {
     this.viaje.imagen = "";
 
   }
-
 }
