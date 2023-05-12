@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Viaje } from './models/viaje';
 import { ViajeService } from './services/viaje.service';
+import { LoginService } from '../login/services/login.service';
+import { User } from '../login/model/Usuario';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +13,22 @@ export class DashboardComponent {
   viaje: Viaje = new Viaje();
   datatable:any = [];
 
-  constructor(private viajeService: ViajeService){}
+  userLoginOn:boolean = false;
+  userData?:User;
+
+  constructor(private viajeService: ViajeService, private loginService:LoginService){}
 
   ngOnInit():void {
+    this.loginService.currentUserLoginOn.subscribe({
+      next:(userLoginOn)=>{
+        this.userLoginOn=userLoginOn;
+      }
+    });
+    this.loginService.currentUserData.subscribe({
+      next:(userData)=>{
+        this.userData=userData;
+      }
+    });
     this.OnDataTable();
   }
 

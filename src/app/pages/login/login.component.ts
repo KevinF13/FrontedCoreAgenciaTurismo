@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { LoginRequest } from './model/loginRequest';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,11 @@ import { LoginRequest } from './model/loginRequest';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  loginError: string = '';
   loginForm = this.formBuilder.group({
-    email:['administrador@gmail.com', [Validators.required, Validators.email]],
+    email:['', [Validators.required, Validators.email]],
     password:['', Validators.required]
   })
 
@@ -38,12 +42,14 @@ export class LoginComponent {
         },
         error: (errorData) => {
           console.error(errorData);
+          this.loginError = errorData;
         },
         complete: () => {
           console.info("Login completo");
         }
       })
       this.router.navigateByUrl('/inicio');
+      this.currentUserLoginOn.next(false);
       this.loginForm.reset();
   }
   else{

@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     DashboardComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

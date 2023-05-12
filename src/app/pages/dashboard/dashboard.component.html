@@ -1,8 +1,9 @@
-<div class="bg-3" id="Titulo">
-  
+<div class="bg-3" id="Titulo" *ngIf="userLoginOn">
       <h1 class="t-stroke t-shadow-halftone text-center">Administrador</h1>
-  
-  </div>
+      <h4>Nombre: {{userData?.name}}</h4>
+      <h4>Apellido: {{userData?.lastName}}</h4>
+      <h4>Email: {{userData?.email}}</h4>
+    </div>
   
 <div class="container-fluid" id="contenedor">
   <div class="container-fluid" *ngFor="let item of datatable">
