@@ -1,8 +1,8 @@
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <p class="text-danger">{{loginError}}</p>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input formControlName="email" type="email" class="form-control" [(ngModel)]="correo" id="exampleInputEmail1" aria-describedby="emailHelp">
       <div *ngIf="email.invalid && (email.dirty || email.touched)"
       class="text-danger">
         <div *ngIf="email.errors?.['required']">
@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+      <input formControlName="password" type="password" [(ngModel)]="contrasena" class="form-control" id="exampleInputPassword1">
       <div *ngIf="password.invalid && (password.dirty || password.touched)"
       class="text-danger">
         <div *ngIf="password.errors?.['required']">
@@ -23,5 +23,12 @@
         </div>
       </div>
     </div>
-    <button type="submit" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
   </form>
+  <div *ngIf="showAlert" class="alert alert-danger mt-3">
+    Credenciales inválidas. Por favor, intenta nuevamente.
+  </div>
+  
+  <div *ngIf="showSuccessAlert" class="alert alert-success mt-3">
+    Inicio de sesión exitoso.
+  </div>

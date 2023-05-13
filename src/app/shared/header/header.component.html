@@ -5,8 +5,8 @@
       </a>
       <a class="py-2 d-none d-md-inline-block" routerLink="/home">Home</a>
       <a class="py-2 d-none d-md-inline-block" *ngIf="userLoginOn" routerLink="/inicio">Dashboard</a>
-      <a *ngIf="!userLoginOn" class="py-2 d-none d-md-inline-block" routerLink="/login">Iniciar Sesión</a>
-      <a *ngIf="userLoginOn" class="py-2 d-none d-md-inline-block" routerLink="/home">Cerrar Sesión</a>
+      <a *ngIf="!isLoggedIn" (click)="login()"  class="py-2 d-none d-md-inline-block" routerLink="/login">Iniciar Sesión</a>
+      <a *ngIf="isLoggedIn" (click)="logout()" class="py-2 d-none d-md-inline-block" routerLink="/home">Cerrar Sesión</a>
     </div>
   </nav>
  
