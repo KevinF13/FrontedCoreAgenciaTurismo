@@ -17,14 +17,14 @@ export class ViajeService {
     return this.http.get(this.url);
   }
   addViaje(viaje:Viaje):Observable<Viaje>{
-    return this.http.post<Viaje>(this.url, viaje);
+    return this.http.post<Viaje>(this.url + `/insertar`, viaje);
   }
 
   updateViaje(id:number, viaje:Viaje):Observable<Viaje>{
-    return this.http.put<Viaje>(this.url + `/${id}`, viaje);
+    return this.http.put<Viaje>(this.url + `/actualizar` + `/${id}`, viaje);
   }
 
   deleteViaje(id:number){
-    return this.http.delete<Viaje>(this.url + `/${id}`);
+    return this.http.delete<Viaje>(this.url + `/eliminar` + `/${id}`);
   }
 }
