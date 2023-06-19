@@ -1,8 +1,8 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <p class="text-danger">{{loginError}}</p>
+     <p class="text-danger">{{loginError}}</p>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input formControlName="correo" type="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <div *ngIf="correo.invalid && (correo.dirty || correo.touched)"
         class="text-danger">
           <div *ngIf="correo.errors?.['required']">
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button> 
     </form>
     <div *ngIf="showAlert" class="alert alert-danger mt-3">
       Credenciales inválidas. Por favor, intenta nuevamente.

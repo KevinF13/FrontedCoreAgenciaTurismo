@@ -12,10 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-cliente.component.scss']
 })
 export class LoginClienteComponent {
-  email: string = '';
-  contrasena: string = '';
   showSuccessAlert: boolean = false;
-  showAlert: boolean = true;
+  showAlert: boolean = false;
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loginError: string = '';
@@ -31,26 +29,26 @@ export class LoginClienteComponent {
   login() {
     // Realizar la llamada a la API en C#
 
-    console.log('hola prueba');
-    
-    
+    let email: any  = this.loginForm.value.correo
+    let pass: any  = this.loginForm.value.password
 
-    // this.http.post('https://localhost:44380/api/Cliente/login', { email: this.email, contrasena: this.contrasena })
-    //   .subscribe((response) => {
-    //     // Aquí puedes manejar la respuesta de la API, como almacenar el token de autenticación, redireccionar, etc.
-    //     this.showSuccessAlert = true;
-    //     this.showAlert = false;
-    //     this.loginIn();
-    //     this.router.navigateByUrl('/inicio');
-    //     this.loginForm.reset();
-    //     console.log(response);
-    //   }, (error) => {
-    //     // Manejo de errores
-    //     console.log('Credenciales inválidas');
-    //     this.showAlert = true;
-    //     this.showSuccessAlert = false;
-    //     console.error(error);
-    //   });
+    console.log({email:email, contrasena:pass});
+    this.http.post('https://localhost:44380/api/Auth/login', {email:email, contrasena:pass})
+      .subscribe((response) => {
+        // Aquí puedes manejar la respuesta de la API, como almacenar el token de autenticación, redireccionar, etc.
+        this.showSuccessAlert = true;
+        this.showAlert = false;
+        this.loginIn();
+        this.router.navigateByUrl('/inicio');
+        this.loginForm.reset();
+        console.log(response);
+      }, (error) => {
+        // Manejo de errores
+        console.log('Credenciales inválidas');
+        this.showAlert = true;
+        this.showSuccessAlert = false;
+        console.error(error);
+      });
   }
   
   loginIn() {

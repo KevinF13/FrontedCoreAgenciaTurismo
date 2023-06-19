@@ -15,7 +15,7 @@ export class ServicesService {
   constructor(private http: HttpClient) { }
 
   login(credentials: LoginRequest): Observable<User> {
-    return this.http.post<User>('https://localhost:44380/api/Cliente/login', credentials).pipe(
+    return this.http.post<User>('https://localhost:44380/api/Auth/login', credentials).pipe(
       tap((userData: User) => {
         this.currentUserData.next(userData);
         this.currentUserLoginOn.next(true);

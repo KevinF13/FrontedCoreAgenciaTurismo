@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
