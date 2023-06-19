@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
+import { RegistroClienteComponent } from './pages/registro-cliente/registro-cliente/registro-cliente.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LoginClienteComponent } from './pages/login-cliente/login-cliente.compo
     LoginComponent,
     HomeComponent,
     LoginClienteComponent,
+    RegistroClienteComponent,
   ],
   imports: [
     BrowserModule,

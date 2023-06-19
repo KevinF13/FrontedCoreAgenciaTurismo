@@ -1,0 +1,86 @@
+<form [formGroup]="registro" (ngSubmit)="registroCliente()">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input formControlName="nombre" placeholder="Ingrese su Nombre" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+        class="text-danger">
+          <div *ngIf="nombre.errors?.['required']">
+              El Nombre es requerido
+          </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Apellido</label>
+        <input formControlName="apellido" placeholder="Ingrese su Apellido" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
+        class="text-danger">
+          <div *ngIf="apellido.errors?.['required']">
+              El Apellido es requerido
+          </div>
+        </div>
+    </div>
+
+    <label for="exampleInputEmail1" class="form-label">Datos Personales</label>  
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Cédula" formControlName="cedula"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span class="input-group-text">+593</span>
+        <input type="text" class="form-control" placeholder="Celular" formControlName="celular"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)"
+        class="text-danger">
+          <div *ngIf="cedula.errors?.['required']">
+              La Cédula es requerida
+          </div>
+        </div>
+
+        <div *ngIf="celular.invalid && (celular.dirty || celular.touched)"
+        class="text-danger">
+          <div *ngIf="celular.errors?.['required']">
+            El Celular es requerido
+          </div>
+        </div>
+
+
+      <div class="input-group">
+        <span class="input-group-text">Dirección</span>
+        <textarea class="form-control" aria-label="With textarea" placeholder="Ejemplo: Calle 44, Casa 14, Granados Plaza" formControlName="direccion"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+      </div>  
+      <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)"
+        class="text-danger">
+          <div *ngIf="direccion.errors?.['required']">
+            La dirección es requerida
+          </div>
+        </div>
+
+     <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+       <input formControlName="correo" placeholder="Ingrese su correo electrónico" type="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+       <div *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+       class="text-danger">
+         <div *ngIf="correo.errors?.['required']">
+             El Correo es requerido
+         </div>
+         <div *ngIf="correo.errors?.['email']">
+             El Correo debe tener un formato válido
+         </div>
+       </div>
+     </div>
+     <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+       <input formControlName="contrasena" placeholder="Ingrese su contraseña" type="password"  class="form-control" id="exampleInputPassword1">
+       <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)"
+       class="text-danger">
+         <div *ngIf="contrasena.errors?.['required']">
+             El Password es requerido
+         </div>
+       </div>
+     </div>
+     <button type="submit" class="btn btn-success">Registrar</button> 
+   </form>
+   <div *ngIf="showAlert" class="alert alert-danger mt-3">
+        Ingrese todos los campos...
+   </div>
+   
+   <div *ngIf="showSuccessAlert" class="alert alert-success mt-3">
+     Se ha registrado correctamente!
+   </div>
