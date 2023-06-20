@@ -39,7 +39,7 @@ export class LoginClienteComponent {
         this.showSuccessAlert = true;
         this.showAlert = false;
         this.loginIn();
-        this.router.navigateByUrl('/inicio');
+        this.router.navigateByUrl('/home');
         this.loginForm.reset();
         console.log(response);
       }, (error) => {

@@ -1,7 +1,7 @@
 <form [formGroup]="registro" (ngSubmit)="registroCliente()">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nombre</label>
-        <input formControlName="nombre" placeholder="Ingrese su Nombre" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input formControlName="nombre" placeholder="Ingrese su Nombre" type="email" class="form-control" id="nombre" aria-describedby="emailHelp">
         <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
         class="text-danger">
           <div *ngIf="nombre.errors?.['required']">
@@ -11,7 +11,7 @@
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Apellido</label>
-        <input formControlName="apellido" placeholder="Ingrese su Apellido" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input formControlName="apellido" placeholder="Ingrese su Apellido" type="email" class="form-control" id="apellido" aria-describedby="emailHelp">
         <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
         class="text-danger">
           <div *ngIf="apellido.errors?.['required']">
@@ -22,9 +22,9 @@
 
     <label for="exampleInputEmail1" class="form-label">Datos Personales</label>  
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Cédula" formControlName="cedula"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="text" class="form-control" placeholder="Cédula" formControlName="cedula"  type="email" class="form-control" id="cedula" aria-describedby="emailHelp">
         <span class="input-group-text">+593</span>
-        <input type="text" class="form-control" placeholder="Celular" formControlName="celular"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="text" class="form-control" placeholder="Celular" formControlName="celular"  type="email" class="form-control" id="celular" aria-describedby="emailHelp">
       </div>
       <div *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)"
         class="text-danger">
@@ -43,7 +43,7 @@
 
       <div class="input-group">
         <span class="input-group-text">Dirección</span>
-        <textarea class="form-control" aria-label="With textarea" placeholder="Ejemplo: Calle 44, Casa 14, Granados Plaza" formControlName="direccion"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+        <textarea class="form-control" aria-label="With textarea" placeholder="Ejemplo: Calle 44, Casa 14, Granados Plaza" formControlName="direccion"  type="email" class="form-control" id="direecion" aria-describedby="emailHelp"></textarea>
       </div>  
       <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)"
         class="text-danger">
