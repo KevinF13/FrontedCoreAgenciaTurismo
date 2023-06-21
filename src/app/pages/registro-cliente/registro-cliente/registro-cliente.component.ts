@@ -58,7 +58,7 @@ export class RegistroClienteComponent {
         // Aquí puedes manejar la respuesta de la API, como almacenar el token de autenticación, redireccionar, etc.
         this.showSuccessAlert = true;
         this.showAlert = false;
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/preferenciaCliente');
         this.registro.reset();
         console.log(response);
       }, (error) => {

@@ -1,0 +1,13 @@
+<body *ngIf="perfilS.isAuthenticated()">
+    <main>
+      <div class="container">
+        <div class="left box-primary">
+          <img class="image" src="https://static.vecteezy.com/system/resources/previews/014/300/061/non_2x/man-profile-glyph-icon-anonymous-photo-for-documents-illustration-vector.jpg" alt="" />
+          <h3 class="username text-center">Mariane Felix Fernandes</h3>
+          <button class="btn btn-success rounded-pill px-3" type="button" routerLink="/preferenciaCliente">Ver Preferencias</button>
+          <button class="btn btn-warning rounded-pill px-3" type="button" routerLink="/loginCliente" (click)="noVerPerfil()">Cerrar Sesión</button>
+        </div>
+        
+      </div>
+    </main>
+  </body>

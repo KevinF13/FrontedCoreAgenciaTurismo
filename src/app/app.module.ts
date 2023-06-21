@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginClienteComponent } from './pages/login-cliente/login-cliente.component';
 import { RegistroClienteComponent } from './pages/registro-cliente/registro-cliente/registro-cliente.component';
+import { PreferenciasClienteComponent } from './pages/preferencias-cliente/preferencias-cliente.component';
+import { PerfilClienteComponent } from './pages/perfil-cliente/perfil-cliente.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { RegistroClienteComponent } from './pages/registro-cliente/registro-clie
     HomeComponent,
     LoginClienteComponent,
     RegistroClienteComponent,
+    PreferenciasClienteComponent,
+    PerfilClienteComponent,
   ],
   imports: [
     BrowserModule,

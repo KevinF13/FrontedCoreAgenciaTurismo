@@ -157,7 +157,8 @@
     </div>
 
     
-<header data-bs-theme="dark">
+    
+<header data-bs-theme="dark" *ngIf="vistaVer">
   <div class="collapse text-bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">
@@ -183,46 +184,47 @@
     </div>
   </div>
 </header>
-
+<app-perfil-cliente></app-perfil-cliente>
 <main>
+  <div class="align-content-center" style="margin-left: 35%; margin-top: 2%;">
+    <h1 style="font-style: italic;">Lugares Turísticos</h1>
+  </div>
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of datatable">
-            <div class="card">
-                <div class="image">
-                    <a >
-                        <img [src]="item.imagen" [alt]="item.nombre" class="card-img-top">
-                    </a>
-                </div>
-                <div class="card-inner">
-                    <div class="header">
-                        <a >
-                        <h2>{{item.nombre}}</h2>
-                        </a>
-                        <p class="card-text">{{item.descripcion}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">${{item.precio}}</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Contratar</button>
-                          </div>
-                          <small class="text-body-secondary">{{item.duracion}} Horas</small>
-                        </div>
-                    </div>
-                </div>
+          <div class="card card-equal-size"> <!-- Agregamos la clase "card-equal-size" -->
+            <div class="image">
+              <a>
+                <img [src]="item.imagen" [alt]="item.nombre" class="card-img-top">
+              </a>
             </div>
+            <div class="card-inner">
+              <div class="header">
+                <a>
+                  <h2>{{item.nombre}}</h2>
+                </a>
+                <p class="card-text">{{item.descripcion}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">${{item.precio}}</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Contratar</button>
+                  </div>
+                  <small class="text-body-secondary">{{item.duracion}} Horas</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound">
-            <p>No hay resultados.........</p>
+          <p>No hay resultados.........</p>
         </div>
-        <button class="btn btn-dark">
-            SUBIR
-        </button>&gt;
-    </div>
+        <button class="btn btn-dark">SUBIR</button>
+      </div>
     </div>
   </div>
 </main>
+
 
 
 

@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
 import { ServicesService } from './services.service';
 import { LoginRequest } from '../login/model/loginRequest';
 import { Router } from '@angular/router';
+import { HomeService } from '../home/home.service';
+import { PerfilServicesService } from '../perfil-cliente/perfil-services.service';
 
 @Component({
   selector: 'app-login-cliente',
@@ -14,6 +16,7 @@ import { Router } from '@angular/router';
 export class LoginClienteComponent {
   showSuccessAlert: boolean = false;
   showAlert: boolean = false;
+  
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loginError: string = '';
@@ -22,7 +25,8 @@ export class LoginClienteComponent {
     password:['', Validators.required]
   })
   
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private loginService:ServicesService,  private router:Router) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private loginService:ServicesService,  
+    private router:Router, private vistaHeader:HomeService, private verPerfil: PerfilServicesService) {}
   
 
 
@@ -39,9 +43,11 @@ export class LoginClienteComponent {
         this.showSuccessAlert = true;
         this.showAlert = false;
         this.loginIn();
+        this.verPerfil.verPerfil();
         this.router.navigateByUrl('/home');
         this.loginForm.reset();
         console.log(response);
+        this.vistaHeader.loginIn();
       }, (error) => {
         // Manejo de errores
         console.log('Credenciales inválidas');

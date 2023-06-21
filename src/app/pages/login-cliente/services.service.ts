@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap, catchError, throwError } from 'rxjs';
 import { User } from '../login/model/Usuario';
 import { LoginRequest } from '../login/model/loginRequest';
+import { HomeComponent } from '../home/home/home.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,20 @@ export class ServicesService {
 
   constructor(private http: HttpClient) { }
 
+
   login(credentials: LoginRequest): Observable<User> {
     return this.http.post<User>('https://localhost:44380/api/Auth/login', credentials).pipe(
       tap((userData: User) => {
+        console.log(credentials);
         this.currentUserData.next(userData);
         this.currentUserLoginOn.next(true);
       }),
       catchError(this.handleError)
     );
   }
+
+  
+  
 
   private handleError(error: HttpErrorResponse) {
     if (error.status == 0) {
