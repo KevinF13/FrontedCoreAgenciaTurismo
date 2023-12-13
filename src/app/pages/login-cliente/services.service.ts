@@ -4,11 +4,16 @@ import { BehaviorSubject, Observable, tap, catchError, throwError } from 'rxjs';
 import { User } from '../login/model/Usuario';
 import { LoginRequest } from '../login/model/loginRequest';
 import { HomeComponent } from '../home/home/home.component';
+import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HomeService } from '../home/home.service';
+import { PerfilServicesService } from '../perfil-cliente/perfil-services.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
+
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<User> = new BehaviorSubject<User>({ id: 0, email: '' });
@@ -26,8 +31,6 @@ export class ServicesService {
       catchError(this.handleError)
     );
   }
-
-  
   
 
   private handleError(error: HttpErrorResponse) {

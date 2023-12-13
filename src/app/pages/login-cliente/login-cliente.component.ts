@@ -14,6 +14,9 @@ import { PerfilServicesService } from '../perfil-cliente/perfil-services.service
   styleUrls: ['./login-cliente.component.scss']
 })
 export class LoginClienteComponent {
+
+
+
   showSuccessAlert: boolean = false;
   showAlert: boolean = false;
   
@@ -35,7 +38,7 @@ export class LoginClienteComponent {
 
     let email: any  = this.loginForm.value.correo
     let pass: any  = this.loginForm.value.password
-
+    
     console.log({email:email, contrasena:pass});
     this.http.post('https://localhost:44380/api/Auth/login', {email:email, contrasena:pass})
       .subscribe((response) => {
@@ -46,6 +49,8 @@ export class LoginClienteComponent {
         this.verPerfil.verPerfil();
         this.router.navigateByUrl('/home');
         this.loginForm.reset();
+        let resp = {response , email}
+        console.log('Datos del Cliente',resp);
         console.log(response);
         this.vistaHeader.loginIn();
       }, (error) => {

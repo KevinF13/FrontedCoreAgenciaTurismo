@@ -1,0 +1,59 @@
+<button (click)="autenticarUsuario()">CORE</button>
+    <div *ngIf="autenticado">
+      <!-- Mostrar los datos relacionados del cliente autenticado -->
+      <h3>Datos del cliente:</h3> 
+      <select [(ngModel)]="selectedIdCliente">
+        <option *ngFor="let clienteId of clienteIds" [value]="clienteId">{{ clienteId }}</option>
+      </select>
+      <button (click)="autenticarUsuario()">Enviar</button>
+       
+      <p>Preferencias del Cliente: {{ nombresSimilares }}</p>
+      <h3>Lista de viajes:</h3>
+        <div class="align-content-center" style="margin-left: 35%; margin-top: 2%;">
+          <h1 style="font-style: italic;">Lugares Turísticos</h1>
+        </div>
+        <div class="album py-5 bg-body-tertiary">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let viaje of listaViajes">
+                <div class="card card-equal-size"> <!-- Agregamos la clase "card-equal-size" -->
+                  <div class="image">
+                    <a>
+                      <img [src]="viaje.imagen" [alt]="viaje.nombre" class="card-img-top">
+                    </a>
+                  </div>
+                  <div class="card-inner">
+                    <div class="header">
+                      <a>
+                        <h2>{{viaje.nombre}}</h2>
+                      </a>
+                      <p class="card-text">{{viaje.descripcion}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">${{viaje.precio}}</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Contratar</button>
+                        </div>
+                        <small class="text-body-secondary">{{viaje.duracion}} Horas</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound">
+                <p>No hay resultados.........</p>
+              </div>
+              <button class="btn btn-dark">SUBIR</button>
+            </div>
+          </div>
+        </div>
+      
+      <ul>
+        <li *ngFor="let viaje of listaViajes">
+          {{ viaje.nombre }} - Duración: {{ viaje.duracion }} días - Precio: {{ viaje.precio }}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="error">
+      <!-- Mostrar mensaje de error -->
+      <p>{{ error }}</p>
+    </div>

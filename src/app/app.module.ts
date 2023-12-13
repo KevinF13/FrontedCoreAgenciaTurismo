@@ -15,6 +15,7 @@ import { LoginClienteComponent } from './pages/login-cliente/login-cliente.compo
 import { RegistroClienteComponent } from './pages/registro-cliente/registro-cliente/registro-cliente.component';
 import { PreferenciasClienteComponent } from './pages/preferencias-cliente/preferencias-cliente.component';
 import { PerfilClienteComponent } from './pages/perfil-cliente/perfil-cliente.component';
+import { ViajesPersonalizadosComponent } from './pages/viajes-personalizados/viajes-personalizados.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PerfilClienteComponent } from './pages/perfil-cliente/perfil-cliente.co
     RegistroClienteComponent,
     PreferenciasClienteComponent,
     PerfilClienteComponent,
+    ViajesPersonalizadosComponent,
   ],
   imports: [
     BrowserModule,

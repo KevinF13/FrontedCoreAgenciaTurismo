@@ -7,6 +7,7 @@ import { LoginClienteComponent } from './pages/login-cliente/login-cliente.compo
 import { RegistroClienteComponent } from './pages/registro-cliente/registro-cliente/registro-cliente.component';
 import { PreferenciasClienteComponent } from './pages/preferencias-cliente/preferencias-cliente.component';
 import { PerfilClienteComponent } from './pages/perfil-cliente/perfil-cliente.component';
+import { ViajesPersonalizadosComponent } from './pages/viajes-personalizados/viajes-personalizados.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
  {path: 'loginCliente', component: LoginClienteComponent},
  {path: 'registroCliente', component: RegistroClienteComponent},
  {path: 'preferenciaCliente', component: PreferenciasClienteComponent},
+ {path: 'viajesCliente', component: ViajesPersonalizadosComponent},
  {path: 'perfilCliente', component: PerfilClienteComponent},
  {path: 'home', component : HomeComponent},
 ];

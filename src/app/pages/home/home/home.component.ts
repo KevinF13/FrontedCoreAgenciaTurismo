@@ -7,6 +7,7 @@ import { LoginService } from '../../login/services/login.service';
 import { User } from '../../login/model/Usuario';
 import { LoginClienteComponent } from '../../login-cliente/login-cliente.component';
 import { HomeService } from '../home.service';
+import { ServicesService } from '../../login-cliente/services.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit{
 
   vistaVer:boolean = true;
   
-  constructor(private viajeService: ViajeService, private loginService:LoginService, private homS:HomeService) {}
+  constructor(private viajeService: ViajeService, private loginService:LoginService, private homS:HomeService,
+    private dataService:ServicesService) {}
 
   
 
